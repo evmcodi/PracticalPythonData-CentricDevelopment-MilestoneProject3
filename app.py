@@ -4,22 +4,20 @@ from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 
 app = Flask(__name__)
-app.config["MONGO_DBNAME"] = 'task_manager'
+app.config["MONGO_DBNAME"] = 'OGFF'
 app.config["MONGO_URI"] = os.getenv('MONGO_URI', 'mongodb://localhost')
-
 
 mongo = PyMongo(app)
 
 
 @app.route('/')
-
+@app.route('/get_foods')
+def get_foods():
+    return render_template("foods.html", foods=mongo.db.OpenGenericFoodFacts.find())
 
 
 if __name__ == '__main__':
-    # app.run(host=os.environ.get('IP'),
-    #         port=int(os.environ.get('PORT')),
-    #         debug=True)
-
     app.run(host=os.environ.get('IP'),
-            port=int('5000'),
+            port=int(os.environ.get('PORT')),
             debug=True)
+
