@@ -11,6 +11,11 @@ mongo = PyMongo(app)
 
 
 @app.route('/')
+@app.route('/today')
+def today():
+    return render_template("today.html")
+
+
 @app.route('/get_foods')
 def get_foods():
     return render_template("foods.html", foods=mongo.db.OpenGenericFoodFacts.find())
