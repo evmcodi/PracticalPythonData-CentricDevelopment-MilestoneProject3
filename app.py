@@ -23,11 +23,7 @@ def today():
 
 @app.route('/get_foods')
 def get_foods():
-    mybeetroot = "beetroot"
-    return render_template("foods.html",
-                           # foods=mongo.db.OpenGenericFoodFacts.find())
-                           # foods = mydatabase.find())
-                           foods=mydatabase.find({"$text": {"$search": mybeetroot}}))
+    return render_template("foods.html")
 
 
 @app.route('/search_foods')
