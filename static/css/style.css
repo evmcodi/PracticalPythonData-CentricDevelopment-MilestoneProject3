@@ -1,4 +1,8 @@
 body {
     /* Fix bootstrap navbar fixed-top covering up main content. */
     padding-top: 5rem;
-  }
+}
+
+.bg-primary {
+    background-color: #528165 !important;
+}
