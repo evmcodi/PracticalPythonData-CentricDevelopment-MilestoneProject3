@@ -1,5 +1,20 @@
 {% extends 'base.html'%} {% block content %}
 
+<!-- <div class="card">
+    <div class="card-body">
+
+
+    </div>
+</div> -->
+
+<form class="form-group" method="get" action="{{url_for('search_foods')}}">
+    <div class="form-row">
+        <input name="search" class="form-control col-7 form-control-lg" type="text" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success bg-light col-5" type="submit">Search</button>
+    </div>
+</form>
+
+
 <div>
 
     {% for food in foods %}
@@ -8,7 +23,7 @@
 
     {% endfor %}
 
-    
+
 </div>
 
 
