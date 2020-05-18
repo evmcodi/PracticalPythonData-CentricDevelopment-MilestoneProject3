@@ -6,3 +6,7 @@ body {
 .bg-primary {
     background-color: #528165 !important;
 }
+
+#add-food-today {
+    margin-top: 2rem;
+}
