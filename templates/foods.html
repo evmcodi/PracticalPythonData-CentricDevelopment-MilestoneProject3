@@ -31,21 +31,38 @@
     </div>
 </div> -->
 
-<form class="form-group" method="get" action="{{url_for('search_foods')}}">
+<form class="form-group" id="searchfoodsform" method="get" action="{{url_for('search_foods')}}">
     <div class="form-row">
-        <input name="search" class="form-control col-7 form-control-lg" type="text" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success bg-light col-5" type="submit">Search</button>
+        <input name="search" class="form-control col-7 form-control-lg" type="text" placeholder="Search"
+            aria-label="Search">
+        <div class="col-1"></div>
+
+        <button class="btn btn-success col-4" type="submit">Search</button>
+
     </div>
 </form>
 
 
 <div>
 
-    {% for food in foods %}
+    <div class="list-group">
 
-    <p>{{food.name_en}}</p>
+        {% for food in foods %}
 
-    {% endfor %}
+
+        <li href="#" class="list-group-item list-group-item-action d-flex">
+            <div>
+                {{food.name_en}}
+            </div>
+            <button class="ml-auto p-2 btn btn-outline-success bg-light">Add to today</button>
+
+        </li>
+
+        {% endfor %}
+
+    </div>
+
+
 
 
 </div>
