@@ -8,6 +8,9 @@
     <a class="nav-link" href="{{url_for('get_foods')}}">Database of foods</a>
 </li>
 <li class="nav-item">
+    <a class="nav-link" href="{{url_for('add_food')}}">Add food</a>
+</li>
+<li class="nav-item">
     <a class="nav-link" href="#">Statistics</a>
 </li>
 <li class="nav-item dropdown">
@@ -48,7 +51,7 @@
         <div>
             <em> If you can't find an item, contribute to the open food database:</em>
         </div>
-        <button class="ml-auto p-2 btn btn-outline-success bg-light">Add a new food to the database</button>
+        <a class="ml-auto p-2 btn btn-outline-success bg-light" href="{{url_for('add_food')}}">Add a new food to the database</a>
 
     </li>
 </div>

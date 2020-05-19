@@ -39,6 +39,18 @@ def success(name):
     return 'welcome %s' % name
 
 
+# Add a new food
+@app.route('/add_food')
+def add_food():
+    return render_template('addfood.html')
+
+
+@app.route('/insert_food', methods=['POST'])
+def insert_food():
+    mydatabase.insert_one(request.form.to_dict())
+    return redirect(url_for('get_foods'))
+
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
