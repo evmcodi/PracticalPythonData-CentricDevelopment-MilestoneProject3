@@ -1,28 +1,7 @@
 {% extends 'base.html'%}
 
-{% block header %}
-
-<li class="nav-item">
-    <a class="nav-link" href="{{url_for('today')}}">Home <span class="sr-only">(current)</span></a>
-</li>
-<li class="nav-item">
-    <a class="nav-link" href="{{url_for('get_foods')}}">Database of foods</a>
-</li>
-<li class="nav-item active">
-    <a class="nav-link" href="{{url_for('add_food')}}">Add food</a>
-</li>
-<li class="nav-item">
-    <a class="nav-link" href="#">Statistics</a>
-</li>
-<li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
-        aria-expanded="false">Help</a>
-    <div class="dropdown-menu" aria-labelledby="dropdown01">
-        <a class="dropdown-item" href="#">Tutorial</a>
-        <a class="dropdown-item" href="#">Find us on Github</a>
-        <a class="dropdown-item" href="#">About</a>
-    </div>
-</li>
+{% block navaddfoodtodb %}
+active
 {% endblock %}
 
 
