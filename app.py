@@ -9,10 +9,10 @@ app.config["MONGO_URI"] = os.getenv('MONGO_URI', 'mongodb://localhost')
 
 mongo = PyMongo(app)
 
-mydatabase = mongo.db.OpenGenericFoodFacts
+mdbcollection_food = mongo.db.OpenGenericFoodFacts
 
 # Create a text index so items in the index can be searched.
-mydatabase.create_index([('name_en', 'text')])
+mdbcollection_food.create_index([('name_en', 'text')])
 
 
 @app.route('/')
@@ -30,8 +30,7 @@ def get_foods():
 def search_foods():
     search = request.args.get('search')
     #   return redirect(url_for('success', name=user))
-    return render_template("foods.html",
-                           foods=mydatabase.find({"$text": {"$search": search}}))
+    return render_template("foods.html", foods=mdbcollection_food.find({"$text": {"$search": search}}))
 
 
 @app.route('/success/<name>')
@@ -47,7 +46,35 @@ def add_food():
 
 @app.route('/insert_food', methods=['POST'])
 def insert_food():
-    mydatabase.insert_one(request.form.to_dict())
+    mdbcollection_food.insert_one(request.form.to_dict())
+    return redirect(url_for('get_foods'))
+
+
+# Edit food, delete food.
+@app.route('/edit_food/<food_id>')
+def edit_food(food_id):
+    the_food = mdbcollection_food.find_one({"_id": ObjectId(food_id)})
+    # all_categories = mdbcollection_food.categories.find()
+    return render_template('editfood.html', food=the_food, categories=all_categories)
+
+
+@app.route('/update_food/<food_id>', methods=["POST"])
+def update_food(food_id):
+    # foods = mdbcollection_food.foods
+    mdbcollection_food.update({'_id': ObjectId(food_id)},
+                 {
+                     'food_name': request.form.get('food_name'),
+                     'category_name': request.form.get('category_name'),
+                     'food_description': request.form.get('food_description'),
+                     'due_date': request.form.get('due_date'),
+                     'is_urgent': request.form.get('is_urgent')
+                 })
+    return redirect(url_for('get_foods'))
+
+
+@app.route('/delete_food/<food_id>')
+def delete_food(food_id):
+    mdbcollection_food.remove({'_id': ObjectId(food_id)})
     return redirect(url_for('get_foods'))
 
 

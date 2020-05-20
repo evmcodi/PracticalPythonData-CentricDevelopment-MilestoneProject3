@@ -30,7 +30,7 @@ body {
     background-color: rgb(182, 34, 34);
 }
 
-.addfoodtodblistitem {
-    /* background-color: rgb(57, 133, 86); */
-    
+
+#addnewfoodbutton {
+    margin-top: 2rem;
 }
