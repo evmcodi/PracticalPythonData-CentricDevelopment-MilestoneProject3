@@ -3,6 +3,8 @@ from flask import Flask, render_template, redirect, request, url_for, request
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 
+import logging
+
 app = Flask(__name__)
 app.config["MONGO_DBNAME"] = 'OGFF'
 app.config["MONGO_URI"] = os.getenv('MONGO_URI', 'mongodb://localhost')
@@ -72,9 +74,10 @@ def update_food(food_id):
     return redirect(url_for('get_foods'))
 
 
-@app.route('/delete_food/<food_id>')
+@app.route('/delete_food/<food_id>', methods=['POST'])
 def delete_food(food_id):
-    mdbcollection_food.remove({'_id': ObjectId(food_id)})
+    mdbcollection_food.delete_one({'_id': ObjectId(food_id)})
+    app.logger.info('test')
     return redirect(url_for('get_foods'))
 
 
