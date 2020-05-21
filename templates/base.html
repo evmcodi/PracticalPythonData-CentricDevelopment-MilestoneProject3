@@ -46,8 +46,8 @@
                     <a class="nav-link" href="#">Statistics</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false">Help</a>
+                    <a class="nav-link dropdown-toggle" href="" id="dropdown01" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">Help</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown01">
                         <a class="dropdown-item" href="#">Tutorial</a>
                         <a class="dropdown-item" href="#">Find us on Github</a>
@@ -72,17 +72,15 @@
     </main><!-- /.container -->
 
 
+    <!-- Loading javascript after html and css, following progressive web design. -->
+    <script src="{{url_for('static', filename='ext_libraries/jquery.js')}}"></script>
+    <script src="{{url_for('static', filename='ext_libraries/popper/dist/umd/popper.min.js')}}"> </script>
+    <script src="{{url_for('static', filename='ext_libraries/bootstrap-4.5.0-dist/js/bootstrap.min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/script.js')}}"></script>
+
 
 
 </body>
 
-<!-- Loading javascript after html and css, following progressive web design. -->
-<script src="{{url_for('static', filename='ext_libraries/jquery.js')}}"></script>
-
-<script src="{{url_for('static', filename='ext_libraries/popper/dist/umd/popper.min.js')}}"> </script>
-
-<script src="{{url_for('static', filename='ext_libraries/bootstrap-4.5.0-dist/js/bootstrap.min.js')}}"></script>
-
-<script src="{{url_for('static', filename='js/script.js')}}"></script>
 
 </html>
