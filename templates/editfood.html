@@ -1,0 +1,86 @@
+{% extends 'base.html'%}
+
+{% block navdatabase %}
+active
+{% endblock %}
+
+
+{% block content %}
+
+
+<form class="border border-light p-5" action="{{ url_for('insert_food') }}" method="POST">
+
+    <div>
+
+        <p class="h4 mb-4 text-center">Edit Food in the NutriApp Database</p>
+
+        <div class="form-group">
+            <label>Food name <small class="text-info"><em>(required)</em></small></label>
+            <input name="name_en" class="form-control mb-4" id="defaultContactFormName" type="text"
+                placeholder="Enter new food name" required value="{{food.name_en}}">
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>Calories per 100g <small class="text-info"><em>(required)</em></small></label>
+                <input name="energy_100g_cal" class="form-control mb-4" id="defaultContactFormEmail" type="number" min=0
+                    step="0.1" placeholder="Enter calories per 100g" required value="{{food.energy_100g_cal}}">
+            </div>
+
+            <div class="form-group col-md-6">
+                <label>Fat per 100g</label>
+                <input name="fat_100g" class="form-control mb-4" id="defaultContactFormEmail" type="number" min=0
+                    step="0.1" placeholder="Enter grams of fat per 100g" value="{{food.fat_100g}}">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>Saturates per 100g</label>
+                <input name="saturates_100g" class="form-control mb-4" id="defaultContactFormEmail" type="number" min=0
+                    step="0.1" placeholder="Enter grams of saturates per 100g" value="{{food.saturates_100g}}">
+            </div>
+
+            <div class="form-group col-md-6">
+                <label>Carbohydrates per 100g</label>
+                <input name="carb_100g" class="form-control mb-4" id="defaultContactFormEmail" type="number" min=0
+                    step="0.1" placeholder="Enter grams of carbohydrates per 100g" value="{{food.carb_100g}}">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>Sugars per 100g</label>
+                <input name="sugars_100g" class="form-control mb-4" id="defaultContactFormEmail" type="number" min=0
+                    step="0.1" placeholder="Enter grams of sugars per 100g" value="{{food.sugars_100g}}">
+            </div>
+
+            <div class="form-group col-md-6">
+                <label>Fibre per 100g</label>
+                <input name="fibre_100g" class="form-control mb-4" id="defaultContactFormEmail" type="number" min=0
+                    step="0.1" placeholder="Enter grams of fibre per 100g" value="{{food.fibre_100g}}">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>Protein per 100g</label>
+                <input name="protein_100g" class="form-control mb-4" id="defaultContactFormEmail" type="number" min=0
+                    step="0.1" placeholder="Enter grams of protein per 100g" value="{{food.protein_100g}}">
+            </div>
+
+            <div class="form-group col-md-6">
+                <label>Salt per 100g</label>
+                <input name="salt_100g" class="form-control mb-4" id="defaultContactFormEmail" type="number" min=0
+                    step="0.1" placeholder="Enter grams of salt per 100g" value="{{food.salt_100g}}">
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-around">
+            <a class="btn btn-secondary" href="{{url_for('get_foods')}}">Cancel Edit</a>
+            <button class="btn btn-info" type="submit">Update Food</button>
+        </div>
+    </div>
+</form>
+
+{% endblock %}

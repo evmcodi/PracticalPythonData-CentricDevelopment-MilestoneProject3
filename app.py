@@ -56,13 +56,12 @@ def insert_food():
 @app.route('/edit_food/<food_id>')
 def edit_food(food_id):
     the_food = mdbcollection_food.find_one({"_id": ObjectId(food_id)})
-    # all_categories = mdbcollection_food.categories.find()
-    return render_template('editfood.html', food=the_food, categories=all_categories)
+    app.logger.info(the_food)
+    return render_template('editfood.html', food=the_food)
 
 
 @app.route('/update_food/<food_id>', methods=["POST"])
 def update_food(food_id):
-    # foods = mdbcollection_food.foods
     mdbcollection_food.update({'_id': ObjectId(food_id)},
                  {
                      'food_name': request.form.get('food_name'),

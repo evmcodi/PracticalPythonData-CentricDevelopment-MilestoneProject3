@@ -9,23 +9,72 @@ active
 
 <form class="border border-light p-5" action="{{ url_for('insert_food') }}" method="POST">
 
-    <div class="form-group">
+    <div>
 
         <p class="h4 mb-4 text-center">Add a new food to NutriApp database.</p>
 
+        <div class="form-group">
+            <label>Food name <small class="text-info"><em>(required)</em></small></label>
+            <input name="name_en" class="form-control mb-4" id="defaultContactFormName" type="text"
+                placeholder="Enter new food name" required>
+        </div>
 
-        <input name="name_en" class="form-control mb-4" id="defaultContactFormName" type="text" placeholder="Food Name">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>Calories per 100g <small class="text-info"><em>(required)</em></small></label>
+                <input name="energy_100g_cal" class="form-control mb-4" id="defaultContactFormEmail" type="number" min=0 step="0.1"
+                    placeholder="Enter calories per 100g" required>
+            </div>
 
-        <input name="energy_100g_cal" class="form-control mb-4" id="defaultContactFormEmail" type="number" placeholder="Calories per 100g">
+            <div class="form-group col-md-6">
+                <label>Fat per 100g</label>
+                <input name="fat_100g" class="form-control mb-4" id="defaultContactFormEmail" type="number" min=0 step="0.1"
+                    placeholder="Enter grams of fat per 100g">
+            </div>
+        </div>
 
-        <textarea name="desc_en" class="form-control rounded-0" id="exampleFormControlTextarea2"
-            placeholder="Food Description"></textarea>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>Saturates per 100g</label>
+                <input name="saturates_100g" class="form-control mb-4" id="defaultContactFormEmail" type="number" min=0 step="0.1"
+                    placeholder="Enter grams of saturates per 100g">
+            </div>
 
-        <!-- <div class="custom-control custom-checkbox mb-4">
-            <input type="checkbox" class="custom-control-input" id="defaultContactFormCopy">
-            <label class="custom-control-label" for="defaultContactFormCopy">This is a simple food - there is only one
-                ingredient.</label>
-        </div> -->
+            <div class="form-group col-md-6">
+                <label>Carbohydrates per 100g</label>
+                <input name="carb_100g" class="form-control mb-4" id="defaultContactFormEmail" type="number" min=0 step="0.1"
+                    placeholder="Enter grams of carbohydrates per 100g">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>Sugars per 100g</label>
+                <input name="sugars_100g" class="form-control mb-4" id="defaultContactFormEmail" type="number" min=0 step="0.1"
+                    placeholder="Enter grams of sugars per 100g">
+            </div>
+
+            <div class="form-group col-md-6">
+                <label>Fibre per 100g</label>
+                <input name="fibre_100g" class="form-control mb-4" id="defaultContactFormEmail" type="number" min=0 step="0.1"
+                    placeholder="Enter grams of fibre per 100g">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>Protein per 100g</label>
+                <input name="protein_100g" class="form-control mb-4" id="defaultContactFormEmail" type="number" min=0 step="0.1"
+                    placeholder="Enter grams of protein per 100g">
+            </div>
+
+            <div class="form-group col-md-6">
+                <label>Salt per 100g</label>
+                <input name="salt_100g" class="form-control mb-4" id="defaultContactFormEmail" type="number" min=0 step="0.1"
+                    placeholder="Enter grams of salt per 100g">
+            </div>
+        </div>
+
 
         <button class="btn btn-info btn-block" id="addnewfoodbutton" type="submit">Add New Food</button>
     </div>
