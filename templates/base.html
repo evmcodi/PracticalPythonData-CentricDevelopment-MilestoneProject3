@@ -33,14 +33,17 @@
 
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav mr-auto">
+                <li class="nav-item {% block navhome %} {% endblock %}">
+                    <a class="nav-link" href="{{url_for('today')}}">Home</a>
+                </li>
                 <li class="nav-item {% block navtoday %} {% endblock %}">
-                    <a class="nav-link" href="{{url_for('today')}}">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{{url_for('today')}}">My Daily Nutrition</a>
                 </li>
                 <li class="nav-item {% block navdatabase %} {% endblock %}">
-                    <a class="nav-link" href="{{url_for('get_foods')}}">Database of foods</a>
+                    <a class="nav-link" href="{{url_for('get_foods')}}">NutriApp Database</a>
                 </li>
                 <li class="nav-item {% block navaddfoodtodb %} {% endblock %}">
-                    <a class="nav-link" href="{{url_for('add_food')}}">Add food</a>
+                    <a class="nav-link" href="{{url_for('add_food')}}">Add Food to Database</a>
                 </li>
                 <li class="nav-item {% block navstatistics %} {% endblock %}">
                     <a class="nav-link" href="#">Statistics</a>

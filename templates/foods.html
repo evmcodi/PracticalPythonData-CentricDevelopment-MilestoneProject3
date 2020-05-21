@@ -46,7 +46,7 @@ active
                 {{food.name_en}}
             </div>
             <button id="" class="ml-auto p-2 btn btn-outline-warning editdeletebtngroup" data-toggle="modal"
-                data-target="#exampleModal" data-foodid="{{food._id}}">
+                data-target="#deleteFoodModal" data-foodid="{{food._id}}">
                 <svg class="bi bi-trash" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
                     xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -68,7 +68,8 @@ active
                 </svg>
             </a>
 
-            <button class=" p-2 btn btn-outline-success">Add to today</button>
+            <button class="p-2 btn btn-outline-success" data-toggle="modal"
+            data-target="#addToTodayModal" data-name_en="{{food.name_en}}" data-energy_100g_cal="{{food.energy_100g_cal}}" data-fat_100g="{{food.fat_100g}}" data-saturates_100g="{{food.saturates_100g}}" data-carb_100g="{{food.carb_100g}}" data-sugars_100g="{{food.sugars_100g}}" data-name_en="{{food.fibre_100g}}" data-name_en="{{food.fibre_100g}}" data-protein_100g="{{food.protein_100g}}">Add to today</button>
 
         </li>
 
@@ -78,9 +79,9 @@ active
 
 </div>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="deleteFoodModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Delete food from community database?</h5>
@@ -97,7 +98,7 @@ active
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button class="btn btn-primary" type="submit">Delete</button>
+                    <button class="btn btn-danger" type="submit">Delete</button>
                 </div>
             </form>
 
@@ -106,6 +107,35 @@ active
 </div>
 
 
+<div class="modal fade" id="addToTodayModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add food to your daily nutrition tracker.</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label id="grams-input-label" for="grams-input" class="col-form-label"></label>
+                        <input type="number" class="form-control" id="grams-input" placeholder="Enter weight of serving in grams. e.g. 120"></textarea>
+                    </div>
+                    <!-- <div class="form-group">
+                        <label for="exampleFormControlInput1">Email address</label>
+                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                      </div> -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button class="btn btn-primary" >Add to today</button>
+                </div>
+
+        </div>
+    </div>
+</div>
 
 
 {% endblock %}
