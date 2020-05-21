@@ -25,7 +25,8 @@ body {
     margin-bottom: 1rem;
 }
 
-#addfoodtodblistgroup{
+
+#addfoodtodblistgroup {
     margin-bottom: 2rem;
     background-color: rgb(182, 34, 34);
 }
@@ -37,4 +38,10 @@ body {
 
 .editdeletebtngroup {
     margin-right: 1rem;
+}
+
+#addtodbbutton:hover {
+    color: #fff !important;
+    background-color: #28a745 !important;
+    border-color: #28a745 !important;
 }

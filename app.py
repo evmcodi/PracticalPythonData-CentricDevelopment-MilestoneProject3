@@ -62,13 +62,17 @@ def edit_food(food_id):
 
 @app.route('/update_food/<food_id>', methods=["POST"])
 def update_food(food_id):
-    mdbcollection_food.update({'_id': ObjectId(food_id)},
+    mdbcollection_food.replace_one({'_id': ObjectId(food_id)},
                  {
-                     'food_name': request.form.get('food_name'),
-                     'category_name': request.form.get('category_name'),
-                     'food_description': request.form.get('food_description'),
-                     'due_date': request.form.get('due_date'),
-                     'is_urgent': request.form.get('is_urgent')
+                     'name_en': request.form.get('name_en'),
+                     'energy_100g_cal': request.form.get('energy_100g_cal'),
+                     'fat_100g': request.form.get('fat_100g'),
+                     'saturates_100g': request.form.get('saturates_100g'),
+                     'carb_100g': request.form.get('carb_100g'),
+                     'sugars_100g': request.form.get('sugars_100g'),
+                     'fibre_100g': request.form.get('fibre_100g'),
+                     'protein_100g': request.form.get('protein_100g'),
+                     'salt_100g': request.form.get('salt_100g')
                  })
     return redirect(url_for('get_foods'))
 
