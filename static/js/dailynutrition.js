@@ -83,7 +83,8 @@ function clearAllMeals() {
         localStorage.removeItem("meal_counter")
 
 
-        // Refresh the page with new null values
+        // Remove items from the page and reset the total calories
+        $('#dailynutritionlist').empty();
         retrieveMeals();
 
 }
