@@ -55,3 +55,35 @@ function retrieveMeals() {
     
     
 }
+
+
+function clearAllMeals() {
+    
+        // Clear the total calorie variable
+        total_calories = 0;
+
+
+        // Delete the localStorage items
+        // get the current meal_counter value
+        var curr_meal_counter = localStorage.getItem("meal_counter");
+        var meal_counter_int = parseInt(curr_meal_counter);
+    
+    
+        for (let i = 1; i <= meal_counter_int; i++) {
+            
+            // Create a string that can be used to address the corresponding localStorage key.
+            let meal_id = "meal" + i;
+            // Delete the meal from localStorage
+            localStorage.removeItem(meal_id);
+
+        }
+    
+
+        // Remove the meal_counter from localStorage
+        localStorage.removeItem("meal_counter")
+
+
+        // Refresh the page with new null values
+        retrieveMeals();
+
+}

@@ -20,45 +20,22 @@ active
     <!-- <h2 id="today-heading">Today's nutrition</h2> -->
     <p id="today-heading" class="h4 text-center">Today's Nutrition</p>
 
-    <div >
+    <div>
         <ul id="dailynutritionlist" class="list-group">
 
         </ul>
 
     </div>
-    <!-- <ul class="list-group">
 
-        <li class="list-group-item">
-            <div class="d-flex">
-                <div class="p-2">Porridge</div>
-                <div class="p-2"> - </div>
-                <div class="p-2">150g</div>
-                <div class="ml-auto p-2">552 cal</div>
-            </div>
-        </li>
+    <div>
+        <a href="{{url_for('get_foods')}}" role="button" class="btn btn-outline-success bg-light btn-lg"
+            id="add-food-today">Add Meal</a>
+    </div>
 
-        <li class="list-group-item">
-            <div class="d-flex">
-                <div class="p-2">Apple</div>
-                <div class="p-2"> - </div>
-                <div class="p-2">100g</div>
-                <div class="ml-auto p-2">150 cal</div>
-            </div>
-        </li>
-
-        <li class="list-group-item">
-            <div class="d-flex">
-                <div class="p-2 lead">Pasta</div>
-                <div class="p-2"> - </div>
-                <div class="p-2">100g</div>
-                <div class="ml-auto p-2">356 cal</div>
-            </div>
-        </li>
-    </ul> -->
-
-    <a href="{{url_for('get_foods')}}" role="button" class="btn btn-outline-success bg-light btn-lg"
-        id="add-food-today">Add meal</a>
-
+    <div>
+        <button role="button" class="btn btn-outline-warning bg-light" id="clear-all-meals"
+            onclick="clearAllMeals()">Clear All Meals</button>
+    </div>
 
 
 </div>
