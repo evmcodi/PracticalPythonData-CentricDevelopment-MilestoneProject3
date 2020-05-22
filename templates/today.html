@@ -13,14 +13,21 @@ active
     <div class="card">
         <div class="card-body d-flex">
             <p class="lead">Calories total: </p>
-            <h2 class="ml-auto">1200</h2>
+            <h2 id="totalcalorieview" class="ml-auto"></h2>
         </div>
     </div>
 
     <!-- <h2 id="today-heading">Today's nutrition</h2> -->
     <p id="today-heading" class="h4 text-center">Today's Nutrition</p>
 
-    <ul class="list-group">
+    <div >
+        <ul id="dailynutritionlist" class="list-group">
+
+        </ul>
+
+    </div>
+    <!-- <ul class="list-group">
+
         <li class="list-group-item">
             <div class="d-flex">
                 <div class="p-2">Porridge</div>
@@ -47,7 +54,7 @@ active
                 <div class="ml-auto p-2">356 cal</div>
             </div>
         </li>
-    </ul>
+    </ul> -->
 
     <a href="{{url_for('get_foods')}}" role="button" class="btn btn-outline-success bg-light btn-lg"
         id="add-food-today">Add meal</a>
@@ -55,6 +62,13 @@ active
 
 
 </div>
+
+
+{% endblock %}
+
+
+{% block pagescript %}
+<script src="{{url_for('static', filename='js/dailynutrition.js')}}"></script>
 
 
 {% endblock %}

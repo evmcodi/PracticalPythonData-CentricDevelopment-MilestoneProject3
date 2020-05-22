@@ -140,7 +140,8 @@ active
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button id="addmealbutton" class="btn btn-primary" onclick="addMealToLocalStorage()">Add to today</button>
+                <button id="addmealbutton" class="btn btn-primary" onclick="addMealToLocalStorage()">Add to
+                    today</button>
             </div>
 
         </div>
@@ -149,7 +150,8 @@ active
 
 
 <!-- "Successfuly added meal" toast -->
-<div id="addedmeal_toast" class="toast" data-delay="5000" role="alert" aria-live="assertive" aria-atomic="true" style="position: absolute; bottom: 1rem; right: 1rem;">
+<div id="addedmeal_toast" class="toast" data-delay="5000" role="alert" aria-live="assertive" aria-atomic="true"
+    style="position: absolute; bottom: 1rem; right: 1rem;">
     <div class="toast-header">
         <!-- <img src="..." class="rounded mr-2" alt="..."> -->
         <strong class="mr-auto">Meal Added!</strong>
@@ -162,5 +164,22 @@ active
         Your meal has been added to My Daily Nutrition.
     </div>
 </div>
+
+{% endblock %}
+
+
+{% block pagescript %}
+
+<script>// Allow desktop / laptop users to add a meal with the 'Enter' key, when focused on the add meal modal.
+    document.querySelector("#addToTodayModal").addEventListener("keyup", event => {
+        // Check if the key pressed is 'Enter'.
+        if (event.key !== "Enter") return;
+
+        // Click the add meal button.
+        document.querySelector("#addmealbutton").click();
+        event.preventDefault();
+    });
+</script>
+
 
 {% endblock %}

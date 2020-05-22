@@ -1,4 +1,33 @@
-// Javascript functions for NutriApp
+// Javascript to run on page load.
+
+// Declare global variables
+var name_en;
+var energy_100g_cal;
+var fat_100g;
+var saturates_100g;
+var carb_100g;
+var sugars_100g;
+var fibre_100g;
+var protein_100g;
+var salt_100g;
+
+var grams;
+var calc_energy_cal;
+var calc_fat;
+var calc_saturates;
+var calc_carb;
+var calc_sugars;
+var calc_fibre;
+var calc_protein;
+var calc_salt;
+
+var energy_cal_total = 0;
+
+
+
+
+
+// Asynchronous javascript functions.
 
 
 // Handle dynamic content loading in modal for 'delete food'
@@ -36,29 +65,6 @@ $('.toast').toast();
 
 
 
-// Declare global variables
-var name_en;
-var energy_100g_cal;
-var fat_100g;
-var saturates_100g;
-var carb_100g;
-var sugars_100g;
-var fibre_100g;
-var protein_100g;
-var salt_100g;
-
-var calc_energy_cal;
-var calc_fat;
-var calc_saturates;
-var calc_carb;
-var calc_sugars;
-var calc_fibre;
-var calc_protein;
-var calc_salt;
-
-
-
-
 // Handle food data loading in modal for 'add food to today'
 $('#addToTodayModal').on('show.bs.modal', function (event) {
     console.log('success')
@@ -93,11 +99,15 @@ $('#addToTodayModal').on('show.bs.modal', function (event) {
 
 
 
+// Javascript functions for NutriApp
+
+
+
 function calculateNutrients(val) {
     // Calculate the nutrition values based on the user input
     // var gramsinput = document.getElementById('grams-input');
 
-    // calc_name_en = name_en
+    grams = val;
     calc_energy_cal = (energy_100g_cal * val) / 100;
     calc_fat = (fat_100g * val) / 100;
     calc_saturates = (saturates_100g * val) / 100;
@@ -107,7 +117,6 @@ function calculateNutrients(val) {
     calc_protein = (protein_100g * val) / 100;
     calc_salt = (salt_100g * val) / 100;
 
-    console.log(calc_salt);
 
 }
 
@@ -116,7 +125,7 @@ function addMealToLocalStorage() {
 
 
     // Create an object string of nutrient values.
-    var meal = '{"energy_cal_ls":"' + calc_energy_cal + '","fat_ls":"' + calc_fat + '","saturates_ls":"' + calc_saturates + '","carb_ls":"' + calc_carb + '","sugars_ls":"' + calc_sugars + '","fibre_ls":"' + calc_fibre + '","protein_ls":"' + calc_protein + '","salt_ls":"' + calc_salt + '"}';
+    var meal = '{"name_en":"'+name_en+'","grams":"'+grams+'","energy_cal_ls":"' + calc_energy_cal + '","fat_ls":"' + calc_fat + '","saturates_ls":"' + calc_saturates + '","carb_ls":"' + calc_carb + '","sugars_ls":"' + calc_sugars + '","fibre_ls":"' + calc_fibre + '","protein_ls":"' + calc_protein + '","salt_ls":"' + calc_salt + '"}';
 
 
     // Add meal to localStorage
@@ -143,17 +152,21 @@ function addMealToLocalStorage() {
         // Add meal to localStorage
         localStorage.setItem(new_meal_id, meal)
 
+        // Add new calories to the total calories counter
+        // energy_cal_total = energy_cal_total + calc_energy_cal;
+        // localStorage.setItem('total_energy_cal', energy_cal_total) = total_energy_cal
+
     } else {
 
         // Create a localStorage meal counter
-        localStorage.setItem("meal_counter", 0);
+        localStorage.setItem("meal_counter", 1);
 
         // console.log(localStorage.getItem("meal_counter"));
 
         // console.log(typeof localStorage.getItem("meal_counter"));
 
         // Create a meal_id key to add to localStorage.
-        var first_meal_id = "meal0";
+        var first_meal_id = "meal1";
 
         // Add meal to localStorage
         localStorage.setItem(first_meal_id, meal)
@@ -171,12 +184,3 @@ function addMealToLocalStorage() {
 
 
 
-// Allow desktop / laptop users to add a meal with the 'Enter' key, when focused on the add meal modal.
-document.querySelector("#addToTodayModal").addEventListener("keyup", event => {
-    // Check if the key pressed is 'Enter'.
-    if(event.key !== "Enter") return;
-
-    // Click the add meal button.
-    document.querySelector("#addmealbutton").click();
-    event.preventDefault();
-});
