@@ -168,3 +168,15 @@ function addMealToLocalStorage() {
 
 
 }
+
+
+
+// Allow desktop / laptop users to add a meal with the 'Enter' key, when focused on the add meal modal.
+document.querySelector("#addToTodayModal").addEventListener("keyup", event => {
+    // Check if the key pressed is 'Enter'.
+    if(event.key !== "Enter") return;
+
+    // Click the add meal button.
+    document.querySelector("#addmealbutton").click();
+    event.preventDefault();
+});
