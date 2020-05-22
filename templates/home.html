@@ -1,0 +1,24 @@
+{% extends 'base.html'%}
+
+{% block navhome %}
+active
+{% endblock %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <h1 class="display-4">Welcome to NutriApp!</h1>
+    <p class="lead">This site allows you to calculate your daily nutrition using a database of common foods. You can
+        help to improve this site by adding new foods to the NutriApp database.</p>
+    <hr class="my-4">
+    <p>Start calculating your nutrition on the Daily Nutrition page. Some of the foods currently in the searchable
+        database include potato, chicken, lentils, baked beans, kidney beans and chickpeas.</p>
+    <p class="lead">There are currently {{count}} foods in the NutriApp database.</p>
+    <p class="lead">
+        <a class="btn btn-info btn-lg" href="{{url_for('today')}}" role="button">Start nutrition</a>
+    </p>
+</div>
+
+{{count}}
+
+{% endblock %}

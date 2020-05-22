@@ -18,6 +18,12 @@ mdbcollection_food.create_index([('name_en', 'text')])
 
 
 @app.route('/')
+@app.route('/home')
+def home():
+    count = mdbcollection_food.estimated_document_count()
+    return render_template("home.html", count=count)
+
+
 @app.route('/today')
 def today():
     return render_template("today.html")
