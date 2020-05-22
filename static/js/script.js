@@ -45,11 +45,6 @@ $('#deleteFoodModal').on('show.bs.modal', function (event) {
 //  Clear input values when modal is hidden.
 $('#addToTodayModal').on('hide.bs.modal', function (event) {
 
-    // var modal = $(this)
-
-    // Remove value of input
-    // $(this)(":input")
-
     $('#grams-input').val("");
 
 })
@@ -84,16 +79,8 @@ $('#addToTodayModal').on('show.bs.modal', function (event) {
     console.log(protein_100g)
     console.log(typeof protein_100g)
 
-    var modal = $(this)
-    // modal.find('label #grams-input-label').val(name_en)
-
     document.getElementById('grams-input-label').innerText = name_en;
 
-
-
-
-    // var deletefoodurl = '/delete_food/' + clicked_food_id
-    // modal.find('.deletefromdb_form').attr('action', deletefoodurl);
 
 })
 
@@ -102,10 +89,8 @@ $('#addToTodayModal').on('show.bs.modal', function (event) {
 // Javascript functions for NutriApp
 
 
-
+// Calculate the nutrition values based on the user input
 function calculateNutrients(val) {
-    // Calculate the nutrition values based on the user input
-    // var gramsinput = document.getElementById('grams-input');
 
     grams = val;
     calc_energy_cal = (energy_100g_cal * val) / 100;
@@ -143,27 +128,18 @@ function addMealToLocalStorage() {
         // update localStorage meal counter
         localStorage.setItem("meal_counter", new_meal_counter_int);
 
-
-
         // Create a meal_id key to add to localStorage.
         var new_meal_id = "meal" + new_meal_counter_int;
-
 
         // Add meal to localStorage
         localStorage.setItem(new_meal_id, meal)
 
-        // Add new calories to the total calories counter
-        // energy_cal_total = energy_cal_total + calc_energy_cal;
-        // localStorage.setItem('total_energy_cal', energy_cal_total) = total_energy_cal
 
     } else {
 
         // Create a localStorage meal counter
         localStorage.setItem("meal_counter", 1);
 
-        // console.log(localStorage.getItem("meal_counter"));
-
-        // console.log(typeof localStorage.getItem("meal_counter"));
 
         // Create a meal_id key to add to localStorage.
         var first_meal_id = "meal1";

@@ -56,12 +56,11 @@ function retrieveMeals() {
     
 }
 
-
+// Clear meals from Daily Nutrition page
 function clearAllMeals() {
     
         // Clear the total calorie variable
         total_calories = 0;
-
 
         // Delete the localStorage items
         // get the current meal_counter value
@@ -78,10 +77,8 @@ function clearAllMeals() {
 
         }
     
-
         // Remove the meal_counter from localStorage
         localStorage.removeItem("meal_counter")
-
 
         // Remove items from the page and reset the total calories
         $('#dailynutritionlist').empty();

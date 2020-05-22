@@ -9,17 +9,9 @@
     <title>NutriApp</title>
 
     <link rel="stylesheet" href="{{url_for('static', filename='css/bgimage.css')}}" type="text/css" />
-
-
-
-
     <link rel="stylesheet"
         href="{{url_for('static', filename='ext_libraries/bootstrap-4.5.0-dist/css/bootstrap.min.css')}}">
-
-
-
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css" />
-
 
 </head>
 
@@ -45,34 +37,16 @@
                 <li class="nav-item {% block navaddfoodtodb %} {% endblock %}">
                     <a class="nav-link" href="{{url_for('add_food')}}">Add Food to Database</a>
                 </li>
-                <li class="nav-item {% block navstatistics %} {% endblock %}">
-                    <a class="nav-link" href="#">Statistics</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="" id="dropdown01" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">Help</a>
-                    <div class="dropdown-menu" aria-labelledby="dropdown01">
-                        <a class="dropdown-item" href="#">Tutorial</a>
-                        <a class="dropdown-item" href="#">Find us on Github</a>
-                        <a class="dropdown-item" href="#">About</a>
-                    </div>
-                </li>
+
             </ul>
         </div>
     </nav>
 
     <main role="main" class="container">
 
-        <!-- <div class="starter-template">
-            <h1>Bootstrap starter template</h1>
-            <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text
-                and a mostly barebones HTML document.</p>
-        </div> -->
-
-
         {% block content %} {% endblock %}
 
-    </main><!-- /.container -->
+    </main>
 
 
     <!-- Loading javascript after html and css, following progressive web design. -->
