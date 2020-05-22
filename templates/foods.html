@@ -121,7 +121,7 @@ active
                 <div class="modal-body">
                     <div class="form-group">
                         <label id="grams-input-label" for="grams-input" class="col-form-label"></label>
-                        <input type="number" class="form-control" id="grams-input" placeholder="Enter weight of serving in grams. e.g. 120"></textarea>
+                        <input type="number" class="form-control" id="grams-input" placeholder="Enter weight of serving in grams. e.g. 120" oninput="calculateNutrients(this.value)">
                     </div>
                     <!-- <div class="form-group">
                         <label for="exampleFormControlInput1">Email address</label>
