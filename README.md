@@ -139,6 +139,7 @@ NutriApp is hosted on heroku [here](https://ntrtnapp.herokuapp.com).
 
 In order to deploy, the config variables for the PORT and IP for the mongodb cluster had to be set on the heroku dashboard.
 
+I linked my Github and Heroku accounts to manually deploy to the heroku app when the github code is changed. This can be set up in the Heroku dashboard under 'Deploy'.
 
 
 ## Credits
